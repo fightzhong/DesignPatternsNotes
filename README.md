@@ -1,5 +1,7 @@
 # 设计模式学习笔记
 
+> 大家可以用gitpages看更方便<a src="https://fightzhong.github.io/DesignPatternsNotes" >查看</a>
+
 ## 学习心得
 ```
 在此跟大家分享一下我学习设计模式的方式, 个人觉得还是满有效的, 我们学习一门新的东西的时候多多少少会
