@@ -1,6 +1,6 @@
 # 设计模式学习笔记
 
-> 大家可以用gitpages看更方便<a src="https://fightzhong.github.io/DesignPatternsNotes" >查看</a>
+> 大家可以用gitpages看更方便 [查看](https://fightzhong.github.io/DesignPatternsNotes)
 
 ## 学习心得
 ```
