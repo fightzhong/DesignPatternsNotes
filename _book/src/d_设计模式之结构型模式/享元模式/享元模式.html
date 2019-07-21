@@ -1,0 +1,950 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>享元模式 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../组合模式/组合模式.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    a_UML基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../a_UML入门/">
+            
+                <a href="../../a_UML入门/">
+            
+                    
+                    UML基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    b_七大设计原则
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../b_七大设计原则/开闭原则/开闭原则.html">
+            
+                <a href="../../b_七大设计原则/开闭原则/开闭原则.html">
+            
+                    
+                    开闭原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../b_七大设计原则/依赖倒置原则/依赖倒置原则.html">
+            
+                <a href="../../b_七大设计原则/依赖倒置原则/依赖倒置原则.html">
+            
+                    
+                    依赖倒置原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../b_七大设计原则/单一职责原则/单一职责原则.html">
+            
+                <a href="../../b_七大设计原则/单一职责原则/单一职责原则.html">
+            
+                    
+                    单一职责原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../b_七大设计原则/接口隔离原则/接口隔离原则.html">
+            
+                <a href="../../b_七大设计原则/接口隔离原则/接口隔离原则.html">
+            
+                    
+                    接口隔离原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../b_七大设计原则/迪米特法则/迪米特法则.html">
+            
+                <a href="../../b_七大设计原则/迪米特法则/迪米特法则.html">
+            
+                    
+                    迪米特法则(最少知道原则)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../b_七大设计原则/里氏替换原则/里氏替换原则.html">
+            
+                <a href="../../b_七大设计原则/里氏替换原则/里氏替换原则.html">
+            
+                    
+                    里氏替换原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../../b_七大设计原则/合成复用原则/合成复用原则.html">
+            
+                <a href="../../b_七大设计原则/合成复用原则/合成复用原则.html">
+            
+                    
+                    合成复用原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    c_设计模式之创建型模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" >
+            
+                <span>
+            
+                    
+                    工厂方法模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../../c_设计模式之创建型模式/工厂方法模式/简单工厂/简单工厂.html">
+            
+                <a href="../../c_设计模式之创建型模式/工厂方法模式/简单工厂/简单工厂.html">
+            
+                    
+                    简单工厂
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../../c_设计模式之创建型模式/工厂方法模式/工厂方法模式/工厂方法模式.html">
+            
+                <a href="../../c_设计模式之创建型模式/工厂方法模式/工厂方法模式/工厂方法模式.html">
+            
+                    
+                    工厂方法模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../c_设计模式之创建型模式/抽象工厂模式/抽象工厂模式.html">
+            
+                <a href="../../c_设计模式之创建型模式/抽象工厂模式/抽象工厂模式.html">
+            
+                    
+                    抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../c_设计模式之创建型模式/建造者模式/建造者模式.html">
+            
+                <a href="../../c_设计模式之创建型模式/建造者模式/建造者模式.html">
+            
+                    
+                    建造者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" >
+            
+                <span>
+            
+                    
+                    单例模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../../c_设计模式之创建型模式/单例模式/单例模式之懒汉式/懒汉式单例模式.html">
+            
+                <a href="../../c_设计模式之创建型模式/单例模式/单例模式之懒汉式/懒汉式单例模式.html">
+            
+                    
+                    单例模式之懒汉式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" data-path="../../c_设计模式之创建型模式/单例模式/单例模式之饿汉式/饿汉式单例模式.html">
+            
+                <a href="../../c_设计模式之创建型模式/单例模式/单例模式之饿汉式/饿汉式单例模式.html">
+            
+                    
+                    单例模式之饿汉式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.3" data-path="../../c_设计模式之创建型模式/单例模式/单例模式之枚举单例/枚举单例.html">
+            
+                <a href="../../c_设计模式之创建型模式/单例模式/单例模式之枚举单例/枚举单例.html">
+            
+                    
+                    单例模式枚举单例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.4" data-path="../../c_设计模式之创建型模式/单例模式/单例模式之序列化破坏/序列化破坏单例.html">
+            
+                <a href="../../c_设计模式之创建型模式/单例模式/单例模式之序列化破坏/序列化破坏单例.html">
+            
+                    
+                    单例模式之序列化破坏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.5" data-path="../../c_设计模式之创建型模式/单例模式/单例模式之反射攻击/反射攻击单例.html">
+            
+                <a href="../../c_设计模式之创建型模式/单例模式/单例模式之反射攻击/反射攻击单例.html">
+            
+                    
+                    单例模式之反射攻击
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.6" data-path="../../c_设计模式之创建型模式/单例模式/单例模式之克隆破坏单例/单例模式之克隆破坏单例.html">
+            
+                <a href="../../c_设计模式之创建型模式/单例模式/单例模式之克隆破坏单例/单例模式之克隆破坏单例.html">
+            
+                    
+                    单例模式之克隆破坏单例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../../c_设计模式之创建型模式/原型模式/原型模式.html">
+            
+                <a href="../../c_设计模式之创建型模式/原型模式/原型模式.html">
+            
+                    
+                    原型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    d_设计模式之结构型模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../适配器模式/适配器模式.html">
+            
+                <a href="../适配器模式/适配器模式.html">
+            
+                    
+                    适配器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../装饰者模式/装饰者模式.html">
+            
+                <a href="../装饰者模式/装饰者模式.html">
+            
+                    
+                    装饰者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../代理模式/代理模式.html">
+            
+                <a href="../代理模式/代理模式.html">
+            
+                    
+                    代理模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../外观模式/外观模式.html">
+            
+                <a href="../外观模式/外观模式.html">
+            
+                    
+                    外观模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../桥接模式/桥接模式.html">
+            
+                <a href="../桥接模式/桥接模式.html">
+            
+                    
+                    桥接模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../组合模式/组合模式.html">
+            
+                <a href="../组合模式/组合模式.html">
+            
+                    
+                    组合模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.7" data-path="享元模式.html">
+            
+                <a href="享元模式.html">
+            
+                    
+                    享元模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    e_设计模式之行为型模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../e_设计模式之行为型模式/策略模式/策略模式.html">
+            
+                <a href="../../e_设计模式之行为型模式/策略模式/策略模式.html">
+            
+                    
+                    策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../../e_设计模式之行为型模式/观察者模式/观察者模式.html">
+            
+                <a href="../../e_设计模式之行为型模式/观察者模式/观察者模式.html">
+            
+                    
+                    观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../../e_设计模式之行为型模式/责任链模式/责任链模式.html">
+            
+                <a href="../../e_设计模式之行为型模式/责任链模式/责任链模式.html">
+            
+                    
+                    责任链模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../../e_设计模式之行为型模式/备忘录模式/备忘录模式.html">
+            
+                <a href="../../e_设计模式之行为型模式/备忘录模式/备忘录模式.html">
+            
+                    
+                    备忘录模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../../e_设计模式之行为型模式/模板方法模式/模板方法模式.html">
+            
+                <a href="../../e_设计模式之行为型模式/模板方法模式/模板方法模式.html">
+            
+                    
+                    模板方法模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../../e_设计模式之行为型模式/迭代器模式/迭代器模式.html">
+            
+                <a href="../../e_设计模式之行为型模式/迭代器模式/迭代器模式.html">
+            
+                    
+                    迭代器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../../e_设计模式之行为型模式/中介者模式/中介者模式.html">
+            
+                <a href="../../e_设计模式之行为型模式/中介者模式/中介者模式.html">
+            
+                    
+                    中介者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../../e_设计模式之行为型模式/命令模式/命令模式.html">
+            
+                <a href="../../e_设计模式之行为型模式/命令模式/命令模式.html">
+            
+                    
+                    命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../../e_设计模式之行为型模式/访问者模式/访问者模式.html">
+            
+                <a href="../../e_设计模式之行为型模式/访问者模式/访问者模式.html">
+            
+                    
+                    访问者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../../e_设计模式之行为型模式/解释器模式/解释器模式.html">
+            
+                <a href="../../e_设计模式之行为型模式/解释器模式/解释器模式.html">
+            
+                    
+                    解释器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../../e_设计模式之行为型模式/状态模式/状态模式.html">
+            
+                <a href="../../e_设计模式之行为型模式/状态模式/状态模式.html">
+            
+                    
+                    状态模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >享元模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x4EAB;&#x5143;&#x6A21;&#x5F0F;">&#x4EAB;&#x5143;&#x6A21;&#x5F0F;</h2>
+<h3 id="&#x5F15;&#x5165;">&#x5F15;&#x5165;</h3>
+<pre><code>&#x5728;&#x771F;&#x6B63;&#x63CF;&#x8FF0;&#x8FD9;&#x4E2A;&#x6A21;&#x5F0F;&#x4E4B;&#x524D;&#x6211;&#x4EEC;&#x5F97;&#x4EE5;&#x8FD9;&#x4E2A;&#x6A21;&#x5F0F;&#x7684;&#x7279;&#x70B9;&#x5165;&#x624B;,&#x4EAB;&#x5143;&#x6A21;&#x5F0F;&#x662F;&#x4E3A;&#x4E86;&#x51CF;&#x5C11;&#x5BF9;&#x8C61;&#x7684;&#x521B;&#x5EFA;, &#x8FD0;&#x7528;&#x5171;&#x4EAB;&#x6280;&#x672F;&#x6709;&#x6548;&#x5730;
+&#x652F;&#x6301;&#x5927;&#x91CF;&#x7EC6;&#x7C92;&#x5EA6;&#x5730;&#x5BF9;&#x8C61;, &#x5176;&#x5B9E;&#x770B;&#x5230;&#x8FD9;&#x53E5;&#x8BDD;&#x6211;&#x7B2C;&#x4E00;&#x53CD;&#x5E94;&#x5C31;&#x662F;&#x8FD9;&#x662F;&#x4EBA;&#x8BDD;&#x5417;??
+
+&#x51CF;&#x5C11;&#x5BF9;&#x8C61;&#x7684;&#x521B;&#x5EFA;: &#x5B83;&#x7684;&#x610F;&#x601D;&#x662F;&#x8BF4;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x540E;, &#x590D;&#x7528;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;, &#x54EA;&#x4E9B;&#x5730;&#x65B9;&#x8981;&#x7528;&#x5230;&#x5C31;&#x76F4;&#x63A5;&#x62FF;&#x53BB;&#x7528;, &#x800C;&#x4E0D;&#x7528;
+&#x518D;&#x521B;&#x5EFA;, &#x6BD4;&#x5982;String&#x5BF9;&#x8C61;, &#x5982;&#x679C;String a = &quot;hehe&quot;, &#x7136;&#x540E;String b = &quot;hehe&quot;, &#x7136;&#x540E;&#x6211;&#x4EEC;&#x8FDB;&#x884C;&#x76F8;&#x7B49;&#x7684;&#x64CD;&#x4F5C;, 
+&#x4F1A;&#x53D1;&#x73B0; a == b&#x662F;true=,=&#x8FD9;&#x5C31;&#x662F;&#x4EAB;&#x5143;&#x6A21;&#x5F0F;&#x7684;&#x5E94;&#x7528;, &#x5F53;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&quot;hehe&quot;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x65F6;&#x5019;, &#x4F1A;&#x5C06;&#x5176;&#x4FDD;&#x5B58;&#x5728;&#x5E38;&#x91CF;
+&#x6C60;&#x4E2D;, &#x4E4B;&#x540E;&#x4E0D;&#x7BA1;&#x662F;&#x7528;&#x8FD8;&#x662F;&#x521B;&#x5EFA;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x73B0;&#x5E38;&#x91CF;&#x6C60;&#x4E2D;&#x5B58;&#x5728;&#x5C31;&#x76F4;&#x63A5;&#x62FF;&#x8FC7;&#x6765;&#x7528;&#x4E86;
+
+&#x7EC6;&#x7C92;&#x5EA6;&#x5BF9;&#x8C61;: &#x54B3;&#x54B3;..&#x8FD9;&#x63CF;&#x8FF0;..&#x5176;&#x5B9E;&#x7EC6;&#x7C92;&#x5EA6;&#x5C31;&#x662F;&#x6307;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x975E;&#x5E38;&#x76F8;&#x4F3C;, &#x6709;&#x591A;&#x76F8;&#x4F3C;&#x5462;? &#x6BD4;&#x5982;&#x540C;&#x4E00;&#x4E2A;Teacher&#x7C7B;&#x7684;&#x4E24;&#x4E2A;
+           &#x5BF9;&#x8C61;, &#x4EC5;&#x4EC5;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6210;&#x5458;&#x5C5E;&#x6027;&#x4E0D;&#x4E00;&#x6837;, &#x90A3;&#x4E48;&#x8FD9;&#x591F;&#x76F8;&#x4F3C;&#x4E86;&#x5427;, &#x518D;&#x6BD4;&#x5982;&#x4E24;&#x4E2A;&#x53CC;&#x80DE;&#x80CE;, &#x5C31;&#x540D;&#x5B57;&#x4E0D;&#x4E00;&#x6837;, 
+           &#x8FD9;&#x4E5F;&#x53EB;&#x7EC6;&#x7C92;&#x5EA6;....
+
+&#x597D;, &#x77E5;&#x9053;&#x4E86;&#x8FD9;&#x4E24;&#x4E2A;&#x6982;&#x5FF5;&#x540E;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x770B;&#x4EAB;&#x5143;&#x6A21;&#x5F0F;&#x7684;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;, &#x770B;&#x5B8C;&#x540E;&#x6211;&#x4EEC;&#x518D;&#x6765;&#x8FDB;&#x4E00;&#x6B65;&#x5206;&#x6790;, &#x573A;&#x666F;&#x662F;&#x4E00;&#x4E2A;&#x5E74;&#x7EA7;&#x4E3B;&#x4EFB;
+(&#x5BA2;&#x6237;&#x7AEF;)&#x8981;&#x6C42;&#x4E00;&#x4E2A;&#x73ED;&#x7EA7;&#x7684;&#x4EFB;&#x8BFE;&#x8001;&#x5E08;&#x6765;&#x5411;&#x5176;&#x6C47;&#x62A5;&#x6559;&#x5B66;&#x5DE5;&#x4F5C;, &#x4E00;&#x5929;&#x6765;&#x4E00;&#x4E2A;&#x4EFB;&#x8BFE;&#x8001;&#x5E08;...
+</code></pre><h3 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
+<ul>
+<li>Teacher&#x63A5;&#x53E3;<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Teacher</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">report</span> <span class="hljs-params">()</span></span>; <span class="hljs-comment">// &#x6559;&#x5E08;&#x6C47;&#x62A5;&#x5DE5;&#x4F5C;</span>
+}
+</code></pre>
+</li>
+<li><p>Teacher&#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TeacherImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Teacher</span> </span>{
+  <span class="hljs-keyword">private</span> String school = <span class="hljs-string">&quot;&#x5475;&#x5475;&#x5B66;&#x6821;&quot;</span>; <span class="hljs-comment">// &#x5B66;&#x6821;&#x540D;&#x79F0;</span>
+  <span class="hljs-keyword">private</span> String teacherType;        <span class="hljs-comment">// &#x6559;&#x5E08;&#x7C7B;&#x578B;</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TeacherImpl</span> <span class="hljs-params">(String teacherType)</span> </span>{
+    <span class="hljs-keyword">this</span>.teacherType = teacherType;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getSchool</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> school;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">report</span> <span class="hljs-params">()</span> </span>{
+    String description = teacherType + <span class="hljs-string">&quot;&#x6C47;&#x62A5;&#x6559;&#x5B66;&#x60C5;&#x51B5;&quot;</span>;
+    System.out.println( description );
+  }
+}
+</code></pre>
+</li>
+<li><p>TeacherFactory</p>
+<pre><code class="lang-JAVA"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TeacherFactory</span> </span>{
+  <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Map&lt;String, Teacher&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Teacher <span class="hljs-title">getTeacher</span> <span class="hljs-params">(String teacherType)</span> </span>{
+    <span class="hljs-comment">// &#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x8BE5;&#x7C7B;&#x578B;&#x7684;&#x6559;&#x5E08;, &#x5219;&#x521B;&#x5EFA;&#x5E76;&#x653E;&#x5165;map&#x4E2D;</span>
+    <span class="hljs-keyword">if</span> ( !map.containsKey( teacherType ) ) {
+      Teacher teacher = <span class="hljs-keyword">new</span> TeacherImpl( teacherType );
+      map.put( teacherType, teacher );
+      System.out.println( <span class="hljs-string">&quot;&#x521B;&#x5EFA;&quot;</span> + teacherType );
+    }
+
+    <span class="hljs-keyword">return</span> map.get( teacherType );
+  }
+}
+</code></pre>
+</li>
+<li><p>&#x6D4B;&#x8BD5;&#x7C7B;(&#x5E74;&#x7EA7;&#x4E3B;&#x4EFB;)  </p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span> <span class="hljs-params">(String[] args)</span> </span>{
+      String[] teacherType = <span class="hljs-keyword">new</span> String[]{ <span class="hljs-string">&quot;&#x8BED;&#x6587;&#x8001;&#x5E08;&quot;</span>, <span class="hljs-string">&quot;&#x6570;&#x5B66;&#x8001;&#x5E08;&quot;</span>, <span class="hljs-string">&quot;&#x82F1;&#x8BED;&#x8001;&#x5E08;&quot;</span> };
+
+  <span class="hljs-comment">// &#x8FDE;&#x7EED;10&#x5929;&#x6C47;&#x62A5;&#x5DE5;&#x4F5C;, &#x6BCF;&#x5929;&#x968F;&#x673A;&#x4E00;&#x4E2A;&#x8001;&#x5E08;</span>
+      <span class="hljs-keyword">for</span> ( <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i ++ ) {
+          <span class="hljs-keyword">int</span> randomNum = (<span class="hljs-keyword">int</span>) ( Math.random() * teacherType.length );
+          Teacher teacher = TeacherFactory.getTeacher( teacherType[ randomNum ] );
+          teacher.report();
+      }
+  }
+</code></pre>
+</li>
+<li>&#x8F93;&#x51FA;&#x7ED3;&#x679C;<pre><code>&#x521B;&#x5EFA;&#x8BED;&#x6587;&#x8001;&#x5E08;
+&#x8BED;&#x6587;&#x8001;&#x5E08;&#x6C47;&#x62A5;&#x6559;&#x5B66;&#x60C5;&#x51B5;
+&#x521B;&#x5EFA;&#x6570;&#x5B66;&#x8001;&#x5E08;
+&#x6570;&#x5B66;&#x8001;&#x5E08;&#x6C47;&#x62A5;&#x6559;&#x5B66;&#x60C5;&#x51B5;
+&#x6570;&#x5B66;&#x8001;&#x5E08;&#x6C47;&#x62A5;&#x6559;&#x5B66;&#x60C5;&#x51B5;
+&#x8BED;&#x6587;&#x8001;&#x5E08;&#x6C47;&#x62A5;&#x6559;&#x5B66;&#x60C5;&#x51B5;
+&#x521B;&#x5EFA;&#x82F1;&#x8BED;&#x8001;&#x5E08;
+&#x82F1;&#x8BED;&#x8001;&#x5E08;&#x6C47;&#x62A5;&#x6559;&#x5B66;&#x60C5;&#x51B5;
+&#x8BED;&#x6587;&#x8001;&#x5E08;&#x6C47;&#x62A5;&#x6559;&#x5B66;&#x60C5;&#x51B5;
+&#x82F1;&#x8BED;&#x8001;&#x5E08;&#x6C47;&#x62A5;&#x6559;&#x5B66;&#x60C5;&#x51B5;
+&#x8BED;&#x6587;&#x8001;&#x5E08;&#x6C47;&#x62A5;&#x6559;&#x5B66;&#x60C5;&#x51B5;
+&#x8BED;&#x6587;&#x8001;&#x5E08;&#x6C47;&#x62A5;&#x6559;&#x5B66;&#x60C5;&#x51B5;
+&#x6570;&#x5B66;&#x8001;&#x5E08;&#x6C47;&#x62A5;&#x6559;&#x5B66;&#x60C5;&#x51B5;
+</code></pre></li>
+</ul>
+<h3 id="&#x5206;&#x6790;">&#x5206;&#x6790;</h3>
+<pre><code>&#x6839;&#x636E;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;, &#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#x6765;&#x63D0;&#x4F9B;&#x6559;&#x5E08;, &#x5E76;&#x4E14;&#x901A;&#x8FC7;&#x5BB9;&#x5668;&#x5355;&#x4F8B;&#x7684;&#x5F62;&#x5F0F;&#x6765;&#x4FDD;&#x8BC1;&#x6559;&#x5E08;&#x7684;&#x552F;&#x4E00;&#x6027;, &#x8FD9;&#x4E2A;&#x5C31;&#x662F;&#x4EAB;&#x5143;
+&#x6A21;&#x5F0F;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;, &#x9996;&#x5148;&#x7EC6;&#x7C92;&#x5EA6;,&#x8FD9;&#x4E9B;&#x6559;&#x5E08;&#x4EC5;&#x4EC5;&#x53EA;&#x6709;teacherType&#x4E0D;&#x4E00;&#x6837;, &#x6559;&#x5E08;&#x95F4;&#x7684;&#x5DEE;&#x522B;&#x4E0D;&#x5927;, &#x7136;&#x540E;&#x662F;&#x51CF;&#x5C11;&#x5BF9;&#x8C61;&#x7684;
+&#x521B;&#x5EFA;, &#x6BCF;&#x6B21;&#x9886;&#x5BFC;&#x9700;&#x8981;&#x8001;&#x5E08;&#x6C47;&#x62A5;&#x65F6;&#x90FD;&#x4F1A;&#x4ECE;map&#x4E2D;&#x627E;&#x5230;&#x8BE5;&#x8001;&#x5E08;, &#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;, &#x8FD9;&#x6837;&#x5C31;&#x590D;&#x7528;&#x4E86;&#x4E4B;&#x524D;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;
+</code></pre><h3 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h3>
+<pre><code>&#x5176;&#x4E2D;&#x4EAB;&#x5143;&#x6A21;&#x5F0F;&#x4E2D;&#x5BF9;&#x4E8E;&#x4EAB;&#x5143;&#x5BF9;&#x8C61;(Teacher)&#x4F1A;&#x6709;&#x4E24;&#x79CD;&#x72B6;&#x6001;, &#x4E00;&#x79CD;&#x662F;&#x5185;&#x90E8;&#x72B6;&#x6001;, &#x5185;&#x90E8;&#x72B6;&#x6001;&#x6307;&#x7684;&#x662F;&#x5BF9;&#x8C61;&#x4E2D;&#x4E0D;&#x4F1A;&#x56E0;&#x4E3A;&#x5916;&#x90E8;
+&#x53C2;&#x6570;&#x7684;&#x6539;&#x53D8;&#x800C;&#x6539;&#x53D8;, &#x5373;school&#x5C5E;&#x6027;, &#x4E0D;&#x4F1A;&#x56E0;&#x4E3A;teacherType&#x7684;&#x6539;&#x53D8;&#x800C;&#x6539;&#x53D8;, &#x800C;&#x5916;&#x90E8;&#x72B6;&#x6001;&#x6307;&#x7684;&#x662F;&#x4F1A;&#x968F;&#x7740;&#x5916;&#x90E8;&#x53C2;&#x6570;&#x7684;
+&#x6539;&#x53D8;&#x800C;&#x6539;&#x53D8;, &#x5373;teacherType
+
+&#x5B9A;&#x4E49;: &#x63D0;&#x4F9B;&#x4E86;&#x51CF;&#x5C11;&#x5BF9;&#x8C61;&#x6570;&#x91CF;&#x4ECE;&#x800C;&#x6539;&#x5584;&#x5E94;&#x7528;&#x6240;&#x9700;&#x7684;&#x5BF9;&#x8C61;&#x7ED3;&#x6784;&#x7684;&#x65B9;&#x5F0F;
+      &#x8FD0;&#x7528;&#x5171;&#x4EAB;&#x6280;&#x672F;&#x6709;&#x6548;&#x5730;&#x652F;&#x6301;&#x5927;&#x91CF;&#x7EC6;&#x7C92;&#x5EA6;&#x7684;&#x5BF9;&#x8C61;
+
+&#x4F7F;&#x7528;&#x573A;&#x666F;:
+      &#x5E38;&#x5E38;&#x5E94;&#x7528;&#x4E8E;&#x7CFB;&#x7EDF;&#x5E95;&#x5C42;&#x7684;&#x5F00;&#x53D1;, &#x4EE5;&#x4FBF;&#x89E3;&#x51B3;&#x7CFB;&#x7EDF;&#x7684;&#x6027;&#x80FD;&#x95EE;&#x9898;
+      &#x7CFB;&#x7EDF;&#x6709;&#x5927;&#x91CF;&#x76F8;&#x4F3C;&#x5BF9;&#x8C61;&#x3001;&#x9700;&#x8981;&#x7F13;&#x51B2;&#x6C60;&#x7684;&#x573A;&#x666F;      
+
+&#x5171;&#x4EAB;: &#x51CF;&#x5C11;&#x5BF9;&#x8C61;&#x7684;&#x521B;&#x5EFA;, &#x964D;&#x4F4E;&#x5185;&#x5B58;&#x4E2D;&#x5BF9;&#x8C61;&#x7684;&#x6570;&#x91CF;, &#x964D;&#x4F4E;&#x7CFB;&#x7EDF;&#x7684;&#x5185;&#x5B58;, &#x63D0;&#x9AD8;&#x6548;&#x7387;
+      &#x51CF;&#x5C11;&#x5185;&#x5B58;&#x4E4B;&#x5916;&#x7684;&#x5176;&#x5B83;&#x8D44;&#x6E90;&#x5360;&#x7528;
+
+&#x7F3A;&#x70B9;&#xFF1A;&#x5173;&#x6CE8;&#x5185;/&#x5916;&#x90E8;&#x72B6;&#x6001;&#x3001;&#x5173;&#x6CE8;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;
+      &#x4F7F;&#x7CFB;&#x7EDF;&#x3001;&#x7A0B;&#x5E8F;&#x7684;&#x903B;&#x8F91;&#x590D;&#x6742;&#x5316;
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../组合模式/组合模式.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 组合模式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"享元模式","level":"1.5.7","depth":2,"next":{"title":"e_设计模式之行为型模式","level":"1.6","depth":1,"ref":"","articles":[{"title":"策略模式","level":"1.6.1","depth":2,"path":"src/e_设计模式之行为型模式/策略模式/策略模式.md","ref":"src/e_设计模式之行为型模式/策略模式/策略模式.md","articles":[]},{"title":"观察者模式","level":"1.6.2","depth":2,"path":"src/e_设计模式之行为型模式/观察者模式/观察者模式.md","ref":"src/e_设计模式之行为型模式/观察者模式/观察者模式.md","articles":[]},{"title":"责任链模式","level":"1.6.3","depth":2,"path":"src/e_设计模式之行为型模式/责任链模式/责任链模式.md","ref":"src/e_设计模式之行为型模式/责任链模式/责任链模式.md","articles":[]},{"title":"备忘录模式","level":"1.6.4","depth":2,"path":"src/e_设计模式之行为型模式/备忘录模式/备忘录模式.md","ref":"src/e_设计模式之行为型模式/备忘录模式/备忘录模式.md","articles":[]},{"title":"模板方法模式","level":"1.6.5","depth":2,"path":"src/e_设计模式之行为型模式/模板方法模式/模板方法模式.md","ref":"src/e_设计模式之行为型模式/模板方法模式/模板方法模式.md","articles":[]},{"title":"迭代器模式","level":"1.6.6","depth":2,"path":"src/e_设计模式之行为型模式/迭代器模式/迭代器模式.md","ref":"src/e_设计模式之行为型模式/迭代器模式/迭代器模式.md","articles":[]},{"title":"中介者模式","level":"1.6.7","depth":2,"path":"src/e_设计模式之行为型模式/中介者模式/中介者模式.md","ref":"src/e_设计模式之行为型模式/中介者模式/中介者模式.md","articles":[]},{"title":"命令模式","level":"1.6.8","depth":2,"path":"src/e_设计模式之行为型模式/命令模式/命令模式.md","ref":"src/e_设计模式之行为型模式/命令模式/命令模式.md","articles":[]},{"title":"访问者模式","level":"1.6.9","depth":2,"path":"src/e_设计模式之行为型模式/访问者模式/访问者模式.md","ref":"src/e_设计模式之行为型模式/访问者模式/访问者模式.md","articles":[]},{"title":"解释器模式","level":"1.6.10","depth":2,"path":"src/e_设计模式之行为型模式/解释器模式/解释器模式.md","ref":"src/e_设计模式之行为型模式/解释器模式/解释器模式.md","articles":[]},{"title":"状态模式","level":"1.6.11","depth":2,"path":"src/e_设计模式之行为型模式/状态模式/状态模式.md","ref":"src/e_设计模式之行为型模式/状态模式/状态模式.md","articles":[]}]},"previous":{"title":"组合模式","level":"1.5.6","depth":2,"path":"src/d_设计模式之结构型模式/组合模式/组合模式.md","ref":"src/d_设计模式之结构型模式/组合模式/组合模式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"src/d_设计模式之结构型模式/享元模式/享元模式.md","mtime":"2019-07-21T15:08:31.426Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-21T15:34:29.694Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1155 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>中介者模式 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../命令模式/命令模式.html" />
+    
+    
+    <link rel="prev" href="../迭代器模式/迭代器模式.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    a_UML基本概念
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../a_UML入门/">
+            
+                <a href="../../a_UML入门/">
+            
+                    
+                    UML基本概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    b_七大设计原则
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../b_七大设计原则/开闭原则/开闭原则.html">
+            
+                <a href="../../b_七大设计原则/开闭原则/开闭原则.html">
+            
+                    
+                    开闭原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../b_七大设计原则/依赖倒置原则/依赖倒置原则.html">
+            
+                <a href="../../b_七大设计原则/依赖倒置原则/依赖倒置原则.html">
+            
+                    
+                    依赖倒置原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../b_七大设计原则/单一职责原则/单一职责原则.html">
+            
+                <a href="../../b_七大设计原则/单一职责原则/单一职责原则.html">
+            
+                    
+                    单一职责原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../b_七大设计原则/接口隔离原则/接口隔离原则.html">
+            
+                <a href="../../b_七大设计原则/接口隔离原则/接口隔离原则.html">
+            
+                    
+                    接口隔离原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../b_七大设计原则/迪米特法则/迪米特法则.html">
+            
+                <a href="../../b_七大设计原则/迪米特法则/迪米特法则.html">
+            
+                    
+                    迪米特法则(最少知道原则)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../b_七大设计原则/里氏替换原则/里氏替换原则.html">
+            
+                <a href="../../b_七大设计原则/里氏替换原则/里氏替换原则.html">
+            
+                    
+                    里氏替换原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../../b_七大设计原则/合成复用原则/合成复用原则.html">
+            
+                <a href="../../b_七大设计原则/合成复用原则/合成复用原则.html">
+            
+                    
+                    合成复用原则
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    c_设计模式之创建型模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" >
+            
+                <span>
+            
+                    
+                    工厂方法模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../../c_设计模式之创建型模式/工厂方法模式/简单工厂/简单工厂.html">
+            
+                <a href="../../c_设计模式之创建型模式/工厂方法模式/简单工厂/简单工厂.html">
+            
+                    
+                    简单工厂
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.1.2" data-path="../../c_设计模式之创建型模式/工厂方法模式/工厂方法模式/工厂方法模式.html">
+            
+                <a href="../../c_设计模式之创建型模式/工厂方法模式/工厂方法模式/工厂方法模式.html">
+            
+                    
+                    工厂方法模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../c_设计模式之创建型模式/抽象工厂模式/抽象工厂模式.html">
+            
+                <a href="../../c_设计模式之创建型模式/抽象工厂模式/抽象工厂模式.html">
+            
+                    
+                    抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../c_设计模式之创建型模式/建造者模式/建造者模式.html">
+            
+                <a href="../../c_设计模式之创建型模式/建造者模式/建造者模式.html">
+            
+                    
+                    建造者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" >
+            
+                <span>
+            
+                    
+                    单例模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../../c_设计模式之创建型模式/单例模式/单例模式之懒汉式/懒汉式单例模式.html">
+            
+                <a href="../../c_设计模式之创建型模式/单例模式/单例模式之懒汉式/懒汉式单例模式.html">
+            
+                    
+                    单例模式之懒汉式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" data-path="../../c_设计模式之创建型模式/单例模式/单例模式之饿汉式/饿汉式单例模式.html">
+            
+                <a href="../../c_设计模式之创建型模式/单例模式/单例模式之饿汉式/饿汉式单例模式.html">
+            
+                    
+                    单例模式之饿汉式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.3" data-path="../../c_设计模式之创建型模式/单例模式/单例模式之枚举单例/枚举单例.html">
+            
+                <a href="../../c_设计模式之创建型模式/单例模式/单例模式之枚举单例/枚举单例.html">
+            
+                    
+                    单例模式枚举单例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.4" data-path="../../c_设计模式之创建型模式/单例模式/单例模式之序列化破坏/序列化破坏单例.html">
+            
+                <a href="../../c_设计模式之创建型模式/单例模式/单例模式之序列化破坏/序列化破坏单例.html">
+            
+                    
+                    单例模式之序列化破坏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.5" data-path="../../c_设计模式之创建型模式/单例模式/单例模式之反射攻击/反射攻击单例.html">
+            
+                <a href="../../c_设计模式之创建型模式/单例模式/单例模式之反射攻击/反射攻击单例.html">
+            
+                    
+                    单例模式之反射攻击
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.6" data-path="../../c_设计模式之创建型模式/单例模式/单例模式之克隆破坏单例/单例模式之克隆破坏单例.html">
+            
+                <a href="../../c_设计模式之创建型模式/单例模式/单例模式之克隆破坏单例/单例模式之克隆破坏单例.html">
+            
+                    
+                    单例模式之克隆破坏单例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../../c_设计模式之创建型模式/原型模式/原型模式.html">
+            
+                <a href="../../c_设计模式之创建型模式/原型模式/原型模式.html">
+            
+                    
+                    原型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    d_设计模式之结构型模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../d_设计模式之结构型模式/适配器模式/适配器模式.html">
+            
+                <a href="../../d_设计模式之结构型模式/适配器模式/适配器模式.html">
+            
+                    
+                    适配器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../d_设计模式之结构型模式/装饰者模式/装饰者模式.html">
+            
+                <a href="../../d_设计模式之结构型模式/装饰者模式/装饰者模式.html">
+            
+                    
+                    装饰者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../d_设计模式之结构型模式/代理模式/代理模式.html">
+            
+                <a href="../../d_设计模式之结构型模式/代理模式/代理模式.html">
+            
+                    
+                    代理模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../d_设计模式之结构型模式/外观模式/外观模式.html">
+            
+                <a href="../../d_设计模式之结构型模式/外观模式/外观模式.html">
+            
+                    
+                    外观模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../d_设计模式之结构型模式/桥接模式/桥接模式.html">
+            
+                <a href="../../d_设计模式之结构型模式/桥接模式/桥接模式.html">
+            
+                    
+                    桥接模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../../d_设计模式之结构型模式/组合模式/组合模式.html">
+            
+                <a href="../../d_设计模式之结构型模式/组合模式/组合模式.html">
+            
+                    
+                    组合模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../../d_设计模式之结构型模式/享元模式/享元模式.html">
+            
+                <a href="../../d_设计模式之结构型模式/享元模式/享元模式.html">
+            
+                    
+                    享元模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    e_设计模式之行为型模式
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../策略模式/策略模式.html">
+            
+                <a href="../策略模式/策略模式.html">
+            
+                    
+                    策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../观察者模式/观察者模式.html">
+            
+                <a href="../观察者模式/观察者模式.html">
+            
+                    
+                    观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../责任链模式/责任链模式.html">
+            
+                <a href="../责任链模式/责任链模式.html">
+            
+                    
+                    责任链模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../备忘录模式/备忘录模式.html">
+            
+                <a href="../备忘录模式/备忘录模式.html">
+            
+                    
+                    备忘录模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../模板方法模式/模板方法模式.html">
+            
+                <a href="../模板方法模式/模板方法模式.html">
+            
+                    
+                    模板方法模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../迭代器模式/迭代器模式.html">
+            
+                <a href="../迭代器模式/迭代器模式.html">
+            
+                    
+                    迭代器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.7" data-path="中介者模式.html">
+            
+                <a href="中介者模式.html">
+            
+                    
+                    中介者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../命令模式/命令模式.html">
+            
+                <a href="../命令模式/命令模式.html">
+            
+                    
+                    命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../访问者模式/访问者模式.html">
+            
+                <a href="../访问者模式/访问者模式.html">
+            
+                    
+                    访问者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../解释器模式/解释器模式.html">
+            
+                <a href="../解释器模式/解释器模式.html">
+            
+                    
+                    解释器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../状态模式/状态模式.html">
+            
+                <a href="../状态模式/状态模式.html">
+            
+                    
+                    状态模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >中介者模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;">&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;</h2>
+<h3 id="&#x5F15;&#x5165;">&#x5F15;&#x5165;</h3>
+<pre><code>&#x4E2D;&#x4ECB;&#x8005;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x4EBA;, &#x8D1F;&#x8D23;&#x4FE1;&#x606F;&#x7684;&#x8F6C;&#x53D1;&#x7B49;, &#x4F8B;&#x5982;&#x6211;&#x4EEC;&#x7684;&#x804A;&#x5929;&#x7FA4;, &#x8FD9;&#x4E2A;&#x7FA4;&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x4E2D;&#x4ECB;&#x8005;, &#x800C;&#x6BCF;&#x4E00;&#x4E2A;&#x53D1;&#x8A00;&#x4EBA;
+&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x4E2D;&#x4ECB;&#x8005;&#x6765;&#x5C06;&#x4FE1;&#x606F;&#x53D1;&#x9001;&#x7ED9;&#x6240;&#x6709;&#x7684;&#x4EBA;, &#x5982;&#x679C;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x4E2D;&#x4ECB;&#x8005;, &#x5C31;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x4E2A;&#x53D1;&#x4E86;, &#x6211;&#x4EEC;&#x5148;&#x4EE5;&#x804A;&#x5929;&#x7FA4;&#x4E3A;
+&#x4F8B;&#x5B50;&#x6765;&#x521D;&#x6B65;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;
+</code></pre><h3 id="&#x804A;&#x5929;&#x7FA4;&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;&#x4EE3;&#x7801;">&#x804A;&#x5929;&#x7FA4;&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;&#x4EE3;&#x7801;</h3>
+<ul>
+<li><p>&#x5B66;&#x751F;&#x7C7B;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{
+  <span class="hljs-comment">// &#x5B66;&#x751F;&#x7684;&#x540D;&#x5B57;, &#x548C;&#x804A;&#x5929;&#x7FA4;&#x4E2D;&#x4ECB;&#x8005;</span>
+  <span class="hljs-keyword">private</span> String name;
+  <span class="hljs-keyword">private</span> IGroupChatMediator groupChatMediator;
+
+  <span class="hljs-comment">// &#x6784;&#x9020;&#x51FD;&#x6570;&#x6765;&#x5C06;&#x4E00;&#x4E2A;&#x5B66;&#x751F;&#x52A0;&#x5165;&#x6307;&#x5B9A;&#x7684;&#x804A;&#x5929;&#x7FA4;</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Student</span> <span class="hljs-params">(String name, IGroupChatMediator groupChatMediator)</span> </span>{
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-keyword">this</span>.groupChatMediator = groupChatMediator;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getName</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> name;
+  }
+
+  <span class="hljs-comment">// &#x8BE5;&#x5B66;&#x751F;&#x53D1;&#x8A00;&#x7684;&#x8BDD;&#x901A;&#x8FC7;&#x4E2D;&#x4ECB;&#x8005;&#x7684;sendMessage&#x6765;&#x4F20;&#x9001;&#x5230;&#x6240;&#x6709;&#x7684;&#x5B66;&#x751F;&#x90A3;&#x91CC;</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sendMessage</span> <span class="hljs-params">(String message)</span> </span>{
+    <span class="hljs-comment">// &#x8FD9;&#x91CC;&#x4F20;this&#x662F;&#x56E0;&#x4E3A;&#x8BA9;&#x804A;&#x5929;&#x7FA4;&#x4E2D;&#x4ECB;&#x8005;&#x80FD;&#x591F;&#x77E5;&#x9053;&#x662F;&#x8C01;&#x53D1;&#x7684;&#x6D88;&#x606F;</span>
+    groupChatMediator.sendMessage( message, <span class="hljs-keyword">this</span> );
+  }
+}
+</code></pre>
+</li>
+<li>&#x4E2D;&#x4ECB;&#x8005;&#x63A5;&#x53E3;<pre><code class="lang-java"><span class="hljs-comment">// &#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;sendMessage</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">IGroupChatMediator</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">sendMessage</span> <span class="hljs-params">(String message, Student student)</span></span>;
+}
+</code></pre>
+</li>
+<li>&#x771F;&#x6B63;&#x7684;&#x4E2D;&#x4ECB;&#x8005;&#x7C7B;<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GroupChatMediator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IGroupChatMediator</span> </span>{
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sendMessage</span> <span class="hljs-params">(String message, Student student)</span> </span>{
+    <span class="hljs-comment">// &#x5BF9;&#x5B66;&#x751F;&#x53D1;&#x6765;&#x6D88;&#x606F;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;&#x540E;&#x8F93;&#x51FA;</span>
+    String newMessage = <span class="hljs-string">&quot;{0} [@{1}]: {2}&quot;</span>;
+    System.out.println( MessageFormat.format( newMessage, <span class="hljs-keyword">new</span> Date(), 
+                      student.getName(), message ) );
+  }
+}
+</code></pre>
+</li>
+<li><p>&#x6D4B;&#x8BD5;&#x7C7B;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span> <span class="hljs-params">(String[] args)</span> </span>{
+  <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x804A;&#x5929;&#x7FA4;</span>
+  IGroupChatMediator groupChatMediator = <span class="hljs-keyword">new</span> GroupChatMediator();
+  <span class="hljs-comment">// &#x4E24;&#x4E2A;&#x7528;&#x6237;&#x52A0;&#x5165;&#x804A;&#x5929;&#x7FA4;</span>
+  Student zhangsan = <span class="hljs-keyword">new</span> Student( <span class="hljs-string">&quot;&#x5F20;&#x4E09;&quot;</span>, groupChatMediator );
+  Student lisi = <span class="hljs-keyword">new</span> Student( <span class="hljs-string">&quot;&#x674E;&#x56DB;&quot;</span>, groupChatMediator );
+
+  <span class="hljs-comment">// &#x7528;&#x6237;&#x53D1;&#x9001;&#x4FE1;&#x606F;</span>
+  zhangsan.sendMessage( <span class="hljs-string">&quot;&#x674E;&#x56DB;, &#x4E2D;&#x5348;&#x6211;&#x4EEC;&#x4E00;&#x8D77;&#x5403;&#x996D;&#x5427;&quot;</span> );
+  lisi.sendMessage( <span class="hljs-string">&quot;&#x597D;&#x7684;, &#x6211;&#x4EEC;&#x53BB;&#x5403;&#x98DF;&#x5802;&quot;</span> );
+}
+</code></pre>
+</li>
+<li>&#x8F93;&#x51FA;&#x7ED3;&#x679C;<pre><code>7/19/19, 10:38 AM [@&#x5F20;&#x4E09;]: &#x674E;&#x56DB;, &#x4E2D;&#x5348;&#x6211;&#x4EEC;&#x4E00;&#x8D77;&#x5403;&#x996D;&#x5427;
+7/19/19, 10:38 AM [@&#x674E;&#x56DB;]: &#x597D;&#x7684;, &#x6211;&#x4EEC;&#x53BB;&#x5403;&#x98DF;&#x5802;
+</code></pre></li>
+</ul>
+<h3 id="&#x7EE7;&#x7EED;&#x6DF1;&#x5165;">&#x7EE7;&#x7EED;&#x6DF1;&#x5165;</h3>
+<pre><code>&#x901A;&#x8FC7;&#x4E0A;&#x8FF0;&#x7684;&#x804A;&#x5929;&#x7FA4;&#x4E2D;&#x4ECB;&#x8005;&#x7684;&#x5B9E;&#x73B0;, &#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x5F53;&#x5F20;&#x4E09;&#x60F3;&#x53D1;&#x9001;&#x4FE1;&#x606F;&#x7ED9;&#x5176;&#x5B83;&#x4EBA;&#x7684;&#x65F6;&#x5019;,&#x4E0D;&#x7528;&#x4E00;&#x4E2A;&#x4E2A;&#x53D1;, &#x53EA;&#x9700;&#x8981;&#x5C06;&#x4FE1;&#x606F;&#x53D1;&#x7ED9;
+&#x4E2D;&#x4ECB;&#x8005;&#x5C31;&#x597D;&#x4E86;, &#x5176;&#x4ED6;&#x4EBA;&#x4E5F;&#x662F;&#x4E00;&#x6837;&#x7684;, &#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x7531;&#x4E8E;&#x6BCF;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x90FD;&#x662F;&#x53D1;&#x9001;&#x4FE1;&#x606F;&#x7ED9;&#x5176;&#x5B83;&#x6240;&#x6709;&#x7684;&#x7528;&#x6237;, &#x6240;&#x4EE5;&#x76F8;&#x5BF9;&#x7B80;&#x5355;, 
+&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x7528;&#x4E00;&#x4E2A;&#x8F83;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x573A;&#x666F;&#x6765;&#x6F14;&#x793A;, &#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6709;&#x4E09;&#x4E2A;&#x6570;&#x636E;&#x5E93;mysql, oracle, redis, &#x5982;&#x679C;mysql&#x7684;&#x6570;&#x636E;&#x5E93;
+&#x7684;&#x4FE1;&#x606F;&#x589E;&#x52A0;&#x4E86;&#x5C31;&#x8981;&#x5C06;&#x4FE1;&#x606F;&#x540C;&#x6B65;&#x5230;oracle&#x548C;redis, &#x800C;oracle&#x6570;&#x636E;&#x5E93;&#x7684;&#x4FE1;&#x606F;&#x589E;&#x52A0;&#x9700;&#x8981;&#x540C;&#x6B65;&#x5230;mysql, redis&#x6570;&#x636E;&#x5E93;
+&#x7684;&#x4FE1;&#x606F;&#x589E;&#x52A0;&#x5219;&#x4E0D;&#x7528;&#x540C;&#x6B65;, &#x5176;&#x4E2D;&#x8FD9;&#x4E2A;&#x589E;&#x52A0;&#x548C;&#x540C;&#x6B65;&#x4E0D;&#x662F;&#x540C;&#x4E00;&#x6982;&#x5FF5;, &#x540C;&#x6B65;&#x6570;&#x636E;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x589E;&#x52A0;&#x7684;&#x64CD;&#x4F5C;(&#x5426;&#x5219;&#x4F1A;&#x89E6;&#x53D1;&#x6B7B;&#x5FAA;&#x73AF;
+&#x4E86;, &#x56E0;&#x4E3A;mysql&#x540C;&#x6B65;&#x5230;oracle,oracle&#x88AB;&#x540C;&#x6B65;&#x540E;&#x5982;&#x679C;&#x8BA4;&#x4E3A;&#x6570;&#x636E;&#x662F;&#x6570;&#x636E;&#x7684;&#x589E;&#x52A0;&#x5C31;&#x4F1A;&#x53C8;&#x4E00;&#x6B21;&#x540C;&#x6B65;&#x5230;mysql)
+</code></pre><h3 id="&#x672A;&#x4F7F;&#x7528;&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x5E93;&#x540C;&#x6B65;">&#x672A;&#x4F7F;&#x7528;&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;&#x7684;&#x6570;&#x636E;&#x5E93;&#x540C;&#x6B65;</h3>
+<ul>
+<li><p>&#x62BD;&#x8C61;&#x7684;&#x6570;&#x636E;&#x5E93;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstractDataBase</span> </span>{
+  <span class="hljs-comment">// &#x6BCF;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x5E93;&#x90FD;&#x6709;&#x4E00;&#x4E2A;database&#x96C6;&#x5408;&#x6765;&#x5B58;&#x50A8;&#x6570;&#x636E;</span>
+  <span class="hljs-keyword">private</span> List&lt;String&gt; database = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+
+  <span class="hljs-comment">// &#x5F80;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x6DFB;&#x52A0;&#x6570;&#x636E;, &#x5E76;&#x6267;&#x884C;&#x540C;&#x6B65;&#x64CD;&#x4F5C;</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addData</span> <span class="hljs-params">(String value)</span> </span>{
+    database.add( value );
+    syncToOther( value );
+  };
+
+  <span class="hljs-comment">// &#x83B7;&#x53D6;&#x8BE5;&#x6570;&#x636E;&#x5E93;</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title">getDatabase</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> database;
+  }
+
+  <span class="hljs-comment">// &#x540C;&#x6B65;&#x6570;&#x636E;&#x64CD;&#x4F5C;</span>
+  <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">syncToOther</span> <span class="hljs-params">(String value)</span></span>;
+}
+</code></pre>
+</li>
+<li><p>Mysql&#x6570;&#x636E;&#x5E93;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MysqlDataBase</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractDataBase</span> </span>{
+  <span class="hljs-comment">// &#x7531;&#x4E8E;&#x9700;&#x8981;&#x540C;&#x6B65;&#x5230;&#x5176;&#x5B83;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x5E93;, &#x6240;&#x4EE5;&#x9700;&#x8981;&#x6CE8;&#x5165;&#x5B83;&#x4EEC;</span>
+  <span class="hljs-keyword">private</span> AbstractDataBase oracleDataBase;
+  <span class="hljs-keyword">private</span> AbstractDataBase redisDataBase;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MysqlDataBase</span> <span class="hljs-params">(AbstractDataBase oracleDataBase, AbstractDataBase redisDataBase)</span> </span>{
+    <span class="hljs-keyword">this</span>.oracleDataBase = oracleDataBase;
+    <span class="hljs-keyword">this</span>.redisDataBase = redisDataBase;
+  }
+
+  <span class="hljs-comment">// &#x540C;&#x6B65;&#x64CD;&#x4F5C;</span>
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">syncToOther</span> <span class="hljs-params">(String value)</span> </span>{
+    oracleDataBase.getDatabase().add( value );
+    redisDataBase.getDatabase().add( value );
+  }
+}
+</code></pre>
+</li>
+<li><p>Oracle&#x6570;&#x636E;&#x5E93;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OracleDataBase</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractDataBase</span> </span>{
+  <span class="hljs-comment">// &#x53EA;&#x9700;&#x8981;&#x540C;&#x6B65;&#x5230;mysql, &#x6240;&#x4EE5;&#x53EA;&#x6CE8;&#x5165;mysql</span>
+  <span class="hljs-keyword">private</span> AbstractDataBase mysqlDatabase;
+
+  <span class="hljs-comment">// &#x901A;&#x8FC7;set&#x65B9;&#x6CD5;&#x6765;&#x6CE8;&#x5165;, &#x5982;&#x679C;&#x901A;&#x8FC7;&#x6784;&#x9020;&#x5668;&#x5C31;&#x4F1A;&#x8DDF;MySQL&#x51B2;&#x7A81;, &#x56E0;&#x4E3A;</span>
+  <span class="hljs-comment">// &#x5FC5;&#x987B;&#x5148;&#x521B;&#x5EFA;&#x5BF9;&#x65B9;&#x624D;&#x80FD;&#x6CE8;&#x5165;</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setMysqlDatabase</span> <span class="hljs-params">(AbstractDataBase mysqlDatabase)</span> </span>{
+    <span class="hljs-keyword">this</span>.mysqlDatabase = mysqlDatabase;
+  }
+
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">syncToOther</span> <span class="hljs-params">(String value)</span> </span>{
+    mysqlDatabase.getDatabase().add( value );
+  }
+}
+</code></pre>
+</li>
+<li><p>Redis&#x6570;&#x636E;&#x5E93;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// redis&#x6570;&#x636E;&#x5E93;&#x4E0D;&#x9700;&#x8981;&#x540C;&#x6B65;&#x5230;&#x5176;&#x5B83;&#x6570;&#x636E;&#x5E93;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RedisDataBase</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractDataBase</span> </span>{
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">syncToOther</span> <span class="hljs-params">(String value)</span> </span>{
+
+  }
+}
+</code></pre>
+</li>
+<li><p>&#x6D4B;&#x8BD5;&#x7C7B;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span> <span class="hljs-params">(String[] args)</span> </span>{
+  <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E09;&#x4E2A;&#x6570;&#x636E;&#x5E93;</span>
+  OracleDataBase oracleDataBase = <span class="hljs-keyword">new</span> OracleDataBase();
+  RedisDataBase redisDataBase = <span class="hljs-keyword">new</span> RedisDataBase();
+  MysqlDataBase mysqlDataBase = <span class="hljs-keyword">new</span> MysqlDataBase( oracleDataBase, redisDataBase );
+  oracleDataBase.setMysqlDatabase( mysqlDataBase );
+
+  <span class="hljs-comment">// &#x5F80;mysql&#x4E2D;&#x6DFB;&#x52A0;&#x6570;&#x636E;</span>
+  mysqlDataBase.addData( <span class="hljs-string">&quot;aaa&quot;</span> );
+  mysqlDataBase.addData( <span class="hljs-string">&quot;bbb&quot;</span> );
+
+  <span class="hljs-comment">// &#x5F80;oracle&#x4E2D;&#x6DFB;&#x52A0;&#x6570;&#x636E;</span>
+  oracleDataBase.addData( <span class="hljs-string">&quot;ccc&quot;</span> );
+  oracleDataBase.addData( <span class="hljs-string">&quot;ddd&quot;</span> );
+
+  <span class="hljs-comment">// &#x5F80;redis&#x4E2D;&#x6DFB;&#x52A0;&#x6570;&#x636E;</span>
+  redisDataBase.addData( <span class="hljs-string">&quot;eeee&quot;</span> );
+
+}
+</code></pre>
+<h3 id="&#x5206;&#x6790;">&#x5206;&#x6790;</h3>
+<pre><code>&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4E2D;&#x4ECB;&#x8005;&#x7684;&#x8BDD;, &#x90A3;&#x4E48;&#x6BCF;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x90FD;&#x8981;&#x6CE8;&#x5165;&#x5176;&#x5B83;&#x6570;&#x636E;&#x5E93;&#x624D;&#x80FD;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x7684;&#x540C;&#x6B65;, &#x5982;&#x679C;&#x6709;&#x4E2D;&#x4ECB;&#x8005;, 
+&#x90A3;&#x4E48;&#x53EA;&#x9700;&#x8981;&#x6CE8;&#x5165;&#x4E00;&#x4E2A;&#x4E2D;&#x4ECB;&#x8005;, &#x800C;&#x901A;&#x8FC7;&#x4E2D;&#x4ECB;&#x8005;&#x91CC;&#x9762;&#x7684;&#x903B;&#x8F91;&#x53BB;&#x5224;&#x65AD;&#x672C;&#x6570;&#x636E;&#x5E93;&#x7684;&#x6570;&#x636E;&#x6DFB;&#x52A0;&#x64CD;&#x4F5C;&#x5E94;&#x8BE5;&#x540C;&#x6B65;&#x5230;&#x54EA;&#x4E9B;&#x6570;&#x636E;&#x5E93;
+</code></pre></li>
+</ul>
+<h3 id="&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;&#x4F18;&#x5316;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;">&#x4E2D;&#x4ECB;&#x8005;&#x6A21;&#x5F0F;&#x4F18;&#x5316;&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;</h3>
+<ul>
+<li><p>&#x62BD;&#x8C61;&#x6570;&#x636E;&#x5E93;&#x7C7B;(&#x6240;&#x6709;&#x7684;&#x6570;&#x636E;&#x5E93;&#x90FD;&#x5B9E;&#x73B0;&#x4E86;&#x8BE5;&#x7C7B;)</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AbstractDataBase</span> </span>{
+  <span class="hljs-keyword">private</span> List&lt;String&gt; database = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+  <span class="hljs-comment">// &#x4E2D;&#x4ECB;&#x8005;, &#x6700;&#x540E;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x7684;&#x589E;&#x52A0;&#x540E;&#x7684;&#x540C;&#x6B65;&#x64CD;&#x4F5C;&#x90FD;&#x4F9D;&#x9760;&#x8FD9;&#x4E2A;&#x4E2D;&#x4ECB;&#x8005;</span>
+  <span class="hljs-keyword">private</span> Mediator mediator;  
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">AbstractDataBase</span> <span class="hljs-params">(Mediator mediator)</span> </span>{
+    <span class="hljs-keyword">this</span>.mediator = mediator;
+  }
+
+  <span class="hljs-comment">// &#x5411;&#x5916;&#x66B4;&#x9732;&#x7684;&#x6DFB;&#x52A0;&#x64CD;&#x4F5C;, &#x5B50;&#x7C7B;&#x91CD;&#x5199;, &#x91CC;&#x9762;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x8C03;&#x7528;&#x4E0B;&#x9762;&#x90A3;&#x4E2A;</span>
+  <span class="hljs-comment">// &#x91CD;&#x8F7D;&#x7684;&#x65B9;&#x6CD5;, &#x4EE5;&#x80FD;&#x591F;&#x6307;&#x5B9A;&#x7C7B;&#x578B;, &#x4ECE;&#x800C;&#x8BA9;&#x4E2D;&#x4ECB;&#x8005;&#x7684;sync&#x65B9;&#x6CD5;&#x80FD;&#x591F;</span>
+  <span class="hljs-comment">// &#x5224;&#x65AD;&#x662F;&#x54EA;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x5E93;, &#x8FDB;&#x800C;&#x6267;&#x884C;&#x4E0D;&#x540C;&#x7684;&#x540C;&#x6B65;&#x64CD;&#x4F5C;</span>
+  <span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addData</span> <span class="hljs-params">(String value)</span></span>;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addData</span> <span class="hljs-params">(String value, String dataBaseType)</span> </span>{
+    database.add( value );
+    mediator.sync( value, dataBaseType );
+  };
+
+  <span class="hljs-comment">// &#x83B7;&#x53D6;&#x6BCF;&#x4E00;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x5E93;&#x7684;&#x96C6;&#x5408;</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;String&gt; <span class="hljs-title">getDatabase</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> database;
+  }
+}
+</code></pre>
+</li>
+<li><p>MysqlDataBase</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MysqlDataBase</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractDataBase</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MysqlDataBase</span> <span class="hljs-params">(Mediator mediator)</span> </span>{
+    <span class="hljs-keyword">super</span>(mediator);
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addData</span> <span class="hljs-params">(String value)</span> </span>{
+    <span class="hljs-comment">// &#x901A;&#x8FC7;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x91CD;&#x8F7D;&#x65B9;&#x6CD5;&#x6765;&#x6307;&#x5B9A;&#x7C7B;&#x578B;</span>
+    <span class="hljs-keyword">super</span>.addData(value, <span class="hljs-string">&quot;Mysql&quot;</span>);
+  }
+}
+</code></pre>
+</li>
+<li><p>OracleDataBase
+```java
+public class OracleDataBase extends AbstractDataBase {
+  public OracleDataBase (Mediator mediator) {</p>
+<pre><code>super(mediator);
+</code></pre><p>  }</p>
+<p>  public void addData (String value) {</p>
+<pre><code>super.addData(value, &quot;Oracle&quot;);
+</code></pre><p>  }
+}
+``</p>
+</li>
+<li><p>RedisDataBase</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RedisDataBase</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractDataBase</span> </span>{
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">RedisDataBase</span> <span class="hljs-params">(Mediator mediator)</span> </span>{
+    <span class="hljs-keyword">super</span>(mediator);
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addData</span> <span class="hljs-params">(String value)</span> </span>{
+    <span class="hljs-keyword">super</span>.addData(value, <span class="hljs-string">&quot;Redis&quot;</span>);
+  }
+}
+</code></pre>
+</li>
+<li><p>&#x4E2D;&#x4ECB;&#x8005;Mediator</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Mediator</span> </span>{
+  <span class="hljs-comment">// &#x6CE8;&#x5165;&#x6570;&#x636E;&#x5E93;</span>
+  <span class="hljs-keyword">private</span> MysqlDataBase mysqlDataBase;
+  <span class="hljs-keyword">private</span> OracleDataBase oracleDataBase;
+  <span class="hljs-keyword">private</span> RedisDataBase redisDataBase;
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setMysqlDataBase</span> <span class="hljs-params">(MysqlDataBase mysqlDataBase)</span> </span>{
+    <span class="hljs-keyword">this</span>.mysqlDataBase = mysqlDataBase;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setOracleDataBase</span> <span class="hljs-params">(OracleDataBase oracleDataBase)</span> </span>{
+    <span class="hljs-keyword">this</span>.oracleDataBase = oracleDataBase;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setRedisDataBase</span> <span class="hljs-params">(RedisDataBase redisDataBase)</span> </span>{
+    <span class="hljs-keyword">this</span>.redisDataBase = redisDataBase;
+  }
+
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sync</span> <span class="hljs-params">(String value, String dataBaseType)</span> </span>{
+    <span class="hljs-keyword">if</span> ( dataBaseType.equals( <span class="hljs-string">&quot;Mysql&quot;</span> ) ) {
+      oracleDataBase.getDatabase().add( value );
+      redisDataBase.getDatabase().add( value );
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( dataBaseType.equals( <span class="hljs-string">&quot;Oracle&quot;</span> ) ) {
+      mysqlDataBase.getDatabase().add( value );
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( dataBaseType.equals( <span class="hljs-string">&quot;Redis&quot;</span> ) ) {
+      <span class="hljs-comment">// &#x4E0D;&#x540C;&#x6B65;</span>
+    }
+  }
+}
+</code></pre>
+</li>
+<li><p>&#x6D4B;&#x8BD5;&#x7C7B;</p>
+<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span> <span class="hljs-params">(String[] args)</span> </span>{
+  <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4E2D;&#x4ECB;&#x8005;</span>
+  Mediator mediator = <span class="hljs-keyword">new</span> Mediator();
+  <span class="hljs-comment">// &#x521B;&#x5EFA;&#x4E09;&#x4E2A;&#x6570;&#x636E;&#x5E93;</span>
+  OracleDataBase oracleDataBase = <span class="hljs-keyword">new</span> OracleDataBase( mediator );
+  RedisDataBase redisDataBase = <span class="hljs-keyword">new</span> RedisDataBase( mediator );
+  MysqlDataBase mysqlDataBase = <span class="hljs-keyword">new</span> MysqlDataBase( mediator );
+
+  mediator.setMysqlDataBase( mysqlDataBase );
+  mediator.setOracleDataBase( oracleDataBase );
+  mediator.setRedisDataBase( redisDataBase );
+
+  <span class="hljs-comment">// &#x5F80;mysql&#x4E2D;&#x6DFB;&#x52A0;&#x6570;&#x636E;</span>
+  mysqlDataBase.addData( <span class="hljs-string">&quot;aaa&quot;</span> );
+  mysqlDataBase.addData( <span class="hljs-string">&quot;bbb&quot;</span> );
+
+  <span class="hljs-comment">// &#x5F80;oracle&#x4E2D;&#x6DFB;&#x52A0;&#x6570;&#x636E;</span>
+  oracleDataBase.addData( <span class="hljs-string">&quot;ccc&quot;</span> );
+  oracleDataBase.addData( <span class="hljs-string">&quot;ddd&quot;</span> );
+
+  <span class="hljs-comment">// &#x5F80;redis&#x4E2D;&#x6DFB;&#x52A0;&#x6570;&#x636E;</span>
+  redisDataBase.addData( <span class="hljs-string">&quot;eeee&quot;</span> );
+}
+</code></pre>
+</li>
+</ul>
+<h3 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h3>
+<pre><code>&#x5B9A;&#x4E49;: &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5C01;&#x88C5;&#x4E00;&#x7EC4;&#x5BF9;&#x8C61;&#x5982;&#x4F55;&#x4EA4;&#x4E92;&#x7684;&#x5BF9;&#x8C61;, &#x901A;&#x8FC7;&#x4F7F;&#x5BF9;&#x8C61;&#x660E;&#x786E;&#x5730;&#x76F8;&#x4E92;&#x5F15;&#x7528;
+      &#x6765;&#x4FC3;&#x8FDB;&#x677E;&#x6563;&#x8026;&#x5408;, &#x5E76;&#x5141;&#x8BB8;&#x72EC;&#x7ACB;&#x5730;&#x6539;&#x53D8;&#x5B83;&#x4EEC;&#x5730;&#x4EA4;&#x4E92;
+
+&#x9002;&#x7528;&#x573A;&#x666F;: &#x7CFB;&#x7EDF;&#x4E2D;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x5B58;&#x5728;&#x590D;&#x6742;&#x5730;&#x5F15;&#x7528;&#x5173;&#x7CFB;, &#x4EA7;&#x751F;&#x7684;&#x76F8;&#x4E92;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x7ED3;&#x6784;&#x6DF7;&#x4E71;
+          &#x4E14;&#x96BE;&#x4EE5;&#x7406;&#x89E3;, &#x4EA4;&#x4E92;&#x7684;&#x516C;&#x5171;&#x884C;&#x4E3A;, &#x5982;&#x679C;&#x9700;&#x8981;&#x6539;&#x53D8;&#x884C;&#x4E3A;&#x5219;&#x53EF;&#x4EE5;&#x589E;&#x52A0;&#x65B0;&#x7684;
+          &#x4E2D;&#x4ECB;&#x8005;&#x7C7B;
+
+&#x4F18;&#x70B9;: 
+    &lt;1&gt; &#x5C06;&#x4E00;&#x5BF9;&#x591A;&#x8F6C;&#x6362;&#x6210;&#x4E86;&#x4E00;&#x5BF9;&#x4E00;&#x3001;&#x964D;&#x4F4E;&#x7A0B;&#x5E8F;&#x590D;&#x6742;&#x5EA6;
+    &lt;2&gt; &#x7C7B;&#x4E4B;&#x95F4;&#x89E3;&#x8026;(&#x5BF9;&#x8C61;&#x4E0D;&#x4E0E;&#x5176;&#x5B83;&#x6240;&#x6709;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x8026;&#x5408;, &#x800C;&#x53EA;&#x4E0E;&#x4E2D;&#x4ECB;&#x8005;&#x4EA7;&#x751F;&#x5173;&#x7CFB;)
+
+&#x7F3A;&#x70B9;: &#x4E2D;&#x4ECB;&#x8005;&#x8FC7;&#x591A;, &#x4E2D;&#x4ECB;&#x8005;&#x8FC7;&#x4E8E;&#x5E9E;&#x5927;, &#x4F1A;&#x4F7F;&#x5F97;&#x7CFB;&#x7EDF;&#x66F4;&#x52A0;&#x590D;&#x6742;
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../迭代器模式/迭代器模式.html" class="navigation navigation-prev " aria-label="Previous page: 迭代器模式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../命令模式/命令模式.html" class="navigation navigation-next " aria-label="Next page: 命令模式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"中介者模式","level":"1.6.7","depth":2,"next":{"title":"命令模式","level":"1.6.8","depth":2,"path":"src/e_设计模式之行为型模式/命令模式/命令模式.md","ref":"src/e_设计模式之行为型模式/命令模式/命令模式.md","articles":[]},"previous":{"title":"迭代器模式","level":"1.6.6","depth":2,"path":"src/e_设计模式之行为型模式/迭代器模式/迭代器模式.md","ref":"src/e_设计模式之行为型模式/迭代器模式/迭代器模式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"src/e_设计模式之行为型模式/中介者模式/中介者模式.md","mtime":"2019-07-21T15:18:20.019Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-21T15:34:29.694Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
